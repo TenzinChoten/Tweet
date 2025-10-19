@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creation</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        
+    </header>
+
+    <div class="container">
+    <h1>What's happening</h1>
+    <form action="/create" method="post">
+        <textarea class="tweet-area" name="post" placeholder="write your post here" required></textarea>
+        <div class="button-row">
+        <button class="post-button" type="submit">post</button>
+        <span class="word-remaining">Word remaining: <span id="wordCount">50</span></span>
+        </div>
+    </form>
+
+    <h2>All posts</h2>
+
+    <ul>
+        <% posts.forEach(function(post, index) { %>
+            <li class="tweets"><span class="tweet-text"> <%= post%> </span><br>
+            <a href="/edit/<%= index %>">edit</a>
+            <form action="/delete/<%= index %>" method="post" style = "display:inline;">
+                <button class="delete-button" type="submit">delete</button>
+            </form>
+            </li>
+        <% }) %>
+    </ul>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
