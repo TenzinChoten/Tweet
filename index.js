@@ -27,7 +27,7 @@ app.get("/edit/:id", (req, res) => {
     if (postId >= 0 && postId < posts.length) {
         res.render("edit.ejs", {post: posts[postId], id: postId});
     } else {
-        res.render("/");
+        res.redirect("/");
     }
 });
 
